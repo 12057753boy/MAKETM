@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满屏飘字</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const words = [
+            "sb", "你是傻子", "快期末考试了", "哈哈哈哈哈",
+            "期末要挂科了", "明年要重修了", "", "Deadline临近",
+            "成绩出来了", "项目重做", "今晚加班", "考试提前",
+            "手机没电", "作业翻倍", "工资延迟",
+            "成绩下滑!", "你单身一辈子",
+            "报告重写", "陪你到世界之巅", "咖啡洒了",
+            "实验失败", "电脑崩溃", "作业翻倍",
+            "假期缩短", "成绩下滑"
+        ];
+
+        class Love {
+            constructor() {
+                this.x = -200;  // 从左侧画布外开始
+                this.y = Math.random() * canvas.height;
+                this.speed = Math.random() * 3 + 2;
+                this.word = words[Math.floor(Math.random() * words.length)];
+                this.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.font = '24px Comic Sans MS';
+                ctx.textAlign = 'center';
+                ctx.fillText(this.word, this.x, this.y);
+            }
+            move() {
+                this.x += this.speed;  // 文字水平向右移动
+                if (this.x > canvas.width + 200) {  // 文字移出画布右侧后重置
+                    this.x = -200;
+                    this.y = Math.random() * canvas.height;
+                    this.word = words[Math.floor(Math.random() * words.length)];
+                    this.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+                }
+            }
+        }
+
+        class Ball {
+            constructor() {
+                this.r = Math.random() * 3 + 2;
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.speed = Math.random() * 8 + 2;
+                this.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            move() {
+                this.y += this.speed;
+                if (this.y > canvas.height + this.r) {
+                    this.y = -this.r;
+                    this.x = Math.random() * canvas.width;
+                    this.color = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+                }
+            }
+        }
+
+        const loves = [];
+        for (let i = 0; i < 66; i++) {
+            loves.push(new Love());
+            loves.push(new Ball());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            loves.forEach(obj => {
+                obj.move();
+                obj.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+
+</html>
