@@ -10,6 +10,11 @@
             margin: 0;
             overflow: hidden;
             background-color: black;
+            color: red;
+            font-size: 100px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            line-height: 100vh;
         }
 
         canvas {
@@ -92,6 +97,9 @@
             loves.push(new Ball());
         }
 
+        let countdown = 3; // 倒计时初始值
+        let timerId = null; // 定时器ID
+
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             loves.forEach(obj => {
@@ -101,6 +109,23 @@
             requestAnimationFrame(animate);
         }
         animate();
+
+        // 6秒后开始倒计时
+        setTimeout(() => {
+            timerId = setInterval(() => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // 清除画布
+                ctx.fillStyle = 'red';
+                ctx.font = '100px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(countdown.toString(), canvas.width / 2, canvas.height / 2);
+                countdown--;
+                if (countdown < 0) {
+                    clearInterval(timerId); // 停止倒计时
+                    document.body.style.backgroundColor = 'black'; // 屏幕变黑
+                    canvas.style.display = 'none'; // 隐藏canvas
+                }
+            }, 1000);
+        }, 6000);
     </script>
 </body>
 
