@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无锡职业技术学院砍人视频</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        .fake-browser {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            width: 800px;
+            height: 600px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .fake-buttons {
+            height: 12px;
+            width: 100%;
+            position: absolute;
+            top: 10px;
+            display: flex;
+            justify-content: start;
+            gap: 10px;
+        }
+
+        .fake-button {
+            border: none;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+        }
+
+        .red {
+            background-color: #ff5f56;
+        }
+
+        .yellow {
+            background-color: #ffbd2e;
+        }
+
+        .green {
+            background-color: #27c93f;
+        }
+
+        .fake-screen {
+            width: 100%;
+            height: calc(100% - 50px);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .button-reload {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 15px;
+            color: white;
+            background-color: blue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .message {
+            margin-top: 15px;
+            font-size: 2em;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fake-browser">
+        <div class="fake-buttons">
+            <div class="fake-button red"></div>
+            <div class="fake-button yellow"></div>
+            <div class="fake-button green"></div>
+        </div>
+        <div class="fake-screen">
+            <div class="message">正在加载，请稍候...</div>
+        </div>
+        <button class="button-reload" onclick="showFinalMessage()">重新加载</button>
+    </div>
+    <script>
+        let reloadButton = document.querySelector('.button-reload');
+        let messageDiv = document.querySelector('.message');
+        let clickCount = 0;
+
+        document.querySelector('.fake-screen').addEventListener('click', function () {
+            clickCount++;
+            if (clickCount === 1) {
+                messageDiv.textContent = '网络异常，请重新加载';
+                // 延迟显示重新加载按钮
+                setTimeout(function () {
+                    reloadButton.style.display = 'block';
+                }, 10);
+            }
+        });
+
+        function showFinalMessage() {
+            messageDiv.textContent = '期末了，还吃瓜，爱吃瓜会害了你';
+            messageDiv.style.fontSize = '30px';
+            messageDiv.style.color = 'red';
+            reloadButton.style.display = 'none';
+            setTimeout(function () {
+                window.location.href = 'https://www.bilibili.com/video/BV1vU421Z7jB?spm_id_from=333.788.videopod.sections&vd_source=2e71739dec9815311d6c19a223544a42';
+            }, 50); // 这里设置为1秒后跳转
+        }
+    </script>
+</body>
+
+</html>
