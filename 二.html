@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>题目查询</title>
+</head>
+
+<body>
+    <input type="text" id="inputField" placeholder="" />
+    <div id="question"></div>
+
+    <script>
+        const questions = [
+            {
+                "question": "下列关于站点目录结构组织的描述正确的是(  )。",
+                "options": {
+                    "A": "可以使用中文目录",
+                    "B": "将所有文件都存放在根目录下",
+                    "C": "按栏目内容分别建立子目录",
+                    "D": "只在根目录下建立images目录"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "运行在互联网上用于WWW服务的协议是( )。",
+                "options": {
+                    "A": "FTP",
+                    "B": "HTTP",
+                    "C": "SMTP",
+                    "D": "POP3"
+                },
+                "answer": "B"
+            },
+            {
+                "question": "下列标记中可以定义有序列表的标记是( ol)。",
+                "options": {
+                    "A": "<dl></dl>",
+                    "B": "<ol></ol>",
+                    "C": "<ul></ul>",
+                    "D": "<dd></dd>"
+                },
+                "answer": "ol"
+            },
+            {
+                "question": "无序列表的type属性默认值是( )。",
+                "options": {
+                    "A": "circle",
+                    "B": "square",
+                    "C": "disc",
+                    "D": "line"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "下列选项中表示版权符号的是( copy )。",
+                "options": {
+                    "A": "&lt;",
+                    "B": "&gt;",
+                    "C": "&reg;",
+                    "D": "&copy;"
+                },
+                "answer": "D"
+            },
+            {
+                "question": "下列选项不是input标记的type属性值的是(      )。",
+                "options": {
+                    "A": "password",
+                    "B": "radio",
+                    "C": "textarea",
+                    "D": "button"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "下列Css规则中能够让图层div不显示的选项是(       )。",
+                "options": {
+                    "A": "div{display:block;}",
+                    "B": "div{display:none;}",
+                    "C": "div {display:inline;}",
+                    "D": "div {display:hidden;}"
+                },
+                "answer": "B"
+            },
+            {
+                "question": "下列css规则中能够让列表项水平排列的选项是(         )。",
+                "options": {
+                    "A": "li{float:left;}",
+                    "B": "li{float:none;}",
+                    "C": "li{float:middle;}",
+                    "D": "li{float:up;}"
+                },
+                "answer": "A"
+            },
+            {
+                "question": "下列设置“上外边距：10px、下外边距：10px、左外边距：40px、右外边距：40px”边距属性正确的是(    )。",
+                "options": {
+                    "A": "margin:10px 10px 40px 10px",
+                    "B": "padding: 10px 40px 10px 40px",
+                    "C": "margin:10px 40px",
+                    "D": "margin-top:20px 30px 40px 50px"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "以下选项中，鼠标单击事件对应的事件句柄是（   ）。",
+                "options": {
+                    "A": "onChange",
+                    "B": "onLoad",
+                    "C": "onClick",
+                    "D": "onDblclick"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "以下事件中，不属于键盘事件的是(      )。",
+                "options": {
+                    "A": "KeyDown",
+                    "B": "KeyPress",
+                    "C": "KeyUp",
+                    "D": "KeyOver"
+                },
+                "answer": "D"
+            },
+            {
+                "question": "在告警消息框中输出“hello world!\"信息正确的是(        )",
+                "options": {
+                    "A": "alertBox(\"hello world!\")",
+                    "B": "msgBox(\"hello world!\")",
+                    "C": "alert(\"hello world!\")",
+                    "D": "alertMsg(\"hello world!\")"
+                },
+                "answer": "C"
+            },
+
+            {
+                "question": "下列属性中能够设置圆角边框的属性的是(     )。",
+                "options": {
+                    "A": "box-shadow",
+                    "B": "border-image",
+                    "C": "border-style",
+                    "D": "border-radius"
+                },
+                "answer": "D"
+            },
+            {
+                "question": "在CSS中，下列哪项定义颜色是错误的(    )",
+                "options": {
+                    "A": "#ffffff",
+                    "B": "rgba(5,0,0,.1)",
+                    "C": "rgb（ff，ff,ff)",
+                    "D": "red"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "下列哪项不是用来设置边框的属性(    )。",
+                "options": {
+                    "A": "border-image",
+                    "B": "border-radius",
+                    "C": "border-style",
+                    "D": "border-width"
+                },
+                "answer": "B"
+            },
+            {
+                "question": "下列选项中，（  ）可用来切换元素的可见状态。",
+                "options": {
+                    "A": "show()",
+                    "B": "hide()",
+                    "C": "toggle()",
+                    "D": "slideToggle()"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "下列选项中，用于解绑jQuery事件的方法有（ ）。",
+                "options": {
+                    "A": "unbind()",
+                    "B": "css()",
+                    "C": "addClass()",
+                    "D": "close()"
+                },
+                "answer": "A"
+            },
+            {
+                "question": "下列关于html()和text()方法描述错误的是（ ）。",
+                "options": {
+                    "A": "text()方法可以获取或者设置包含元素标签的内容",
+                    "B": "两者都可以用来为元素设置文本内容",
+                    "C": "html()方法可以获取或者设置包含元素标签的内容",
+                    "D": "html()方法和原生的JavaScript中的innerHTML属性的使用类似"
+                },
+                "answer": "A"
+            },
+            {
+                "question": "下列哪项不属于jQuery中操作DOM节点的方法。(    )",
+                "options": {
+                    "A": "append()",
+                    "B": "prepend()",
+                    "C": "attr()",
+                    "D": "before()"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "下列不属于网页设计步骤的是( )。",
+                "options": {
+                    "A": "拟定网站主题",
+                    "B": "规划网站架构与内容",
+                    "C": "收集相关资料",
+                    "D": "选择网站的开发工具"
+                },
+                "answer": "D"
+            },
+            {
+                "question": "下列哪种语言可以实现网页交互功能（）。",
+                "options": {
+                    "A": "HTML",
+                    "B": "CSS",
+                    "C": "C++",
+                    "D": "JavaScript"
+                },
+                "answer": "D"
+            },
+            {
+                "question": "Dreamweaver中，通过（ ）可以对一个网页的名称、网页背景、网页链接文字属性、网页边界等进行设置。",
+                "options": {
+                    "A": "站点管理窗口",
+                    "B": "对象面板",
+                    "C": "页面属性对话框",
+                    "D": "属性面板"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "启动Dreamweaver后，属性面板默认的是(     )属性。",
+                "options": {
+                    "A": "文本",
+                    "B": "图像",
+                    "C": "表格",
+                    "D": "单元格"
+                },
+                "answer": "A"
+            },
+            {
+                "question": "在 Dreamweaver 中,下面关于定义站点的说法错误的是（    ）。",
+                "options": {
+                    "A": "首先定义新站点，打开站点定义设置窗口",
+                    "B": "在站点定义设置窗口的站点名称中填写网站的名称",
+                    "C": "在站点设置窗口中，可以设置本地网站的保存路径，但不可以设置图片的保存路径",
+                    "D": "本地站点的定义比较简单，基本上选择好目录就可以了"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "下列标记用于设置页面标题的标记是（title）。",
+                "options": {
+                    "A": "<html>",
+                    "B": "<head>",
+                    "C": "<caption>",
+                    "D": "<title>"
+                },
+                "answer": "D"
+            },
+            {
+                "question": "设置body显示信息颜色为红色的属性是(     )。",
+                "options": {
+                    "A": "text",
+                    "B": "color",
+                    "C": "bgcolor"
+                },
+                "answer": "A"
+            },
+
+            {
+                "question": "下列标记中能够显示网页内容的标记是(   body   )",
+                "options": {
+                    "A": "<title>",
+                    "B": "<br>",
+                    "C": "<body>",
+                    "D": "<html>"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "要使自己的网站对浏览者产生持久的吸引力，最需要做的是（　　）。",
+                "options": {
+                    "A": "网站的发布",
+                    "B": "网站更新",
+                    "C": "网站设计",
+                    "D": "宣传网站"
+                },
+                "answer": "B"
+            },
+            {
+                "question": "CSS中选择器是由选择器和(     )构成的。",
+                "options": {
+                    "A": "声明",
+                    "B": "属性",
+                    "C": "值",
+                    "D": "属性选择器"
+                },
+                "answer": "A"
+            },
+            {
+                "question": "下列选项中css规则书写正正确的是(    )",
+                "options": {
+                    "A": "bodycolor=black",
+                    "B": "body{color: black;}",
+                    "C": "{body;color: black;}",
+                    "D": "{body: color=black;}"
+                },
+                "answer": "B"
+            },
+            {
+                "question": "下列选项中样式优先级最高的是(     )",
+                "options": {
+                    "A": "标记样式",
+                    "B": "class 样式",
+                    "C": "id样式",
+                    "D": "行内样式"
+                },
+                "answer": "D"
+            },
+            {
+                "question": "JavaScript中表示声明变量的关键字是(    )",
+                "options": {
+                    "A": "if",
+                    "B": "while",
+                    "C": "var",
+                    "D": "loop"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "在JavaScript中，满足变量y小于50或者大于100条件的正确表达式是(    )。",
+                "options": {
+                    "A": "(y<50 & y>100)",
+                    "B": "(y<50 || y>100)",
+                    "C": "(y<50 or y> 100)",
+                    "D": "(y>=50 && y<100)"
+                },
+                "answer": "B"
+            },
+            {
+                "question": "下列JavaScript语句中能正确执行的是(    )。",
+                "options": {
+                    "A": "var x=1;if (x==1) {alert('Hello World! ');}",
+                    "B": "x=10,document.write(x+y);",
+                    "C": "var sum=x+y;",
+                    "D": "var x=1;if (x==1) then {alert('Hello World! ');}"
+                },
+                "answer": "A"
+            },
+            {
+                "question": "在jQuery中被称为工厂“函数的是(        )。",
+                "options": {
+                    "A": "ready()",
+                    "B": "function()",
+                    "C": "$()",
+                    "D": "next()"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "若要选取<ul>元素中的第三个<li>元素,则下列jQuery 选择器写法正确的是(        )。",
+                "options": {
+                    "A": "$('li:odd')",
+                    "B": "$('li:eq(2)')",
+                    "C": "$('li:gt(2)')",
+                    "D": "$('li:lt(2)')"
+                },
+                "answer": "B"
+            },
+            {
+                "question": "下列选项中，不属于jQuery基本选择器的是(    )。",
+                "options": {
+                    "A": "element",
+                    "B": "#id",
+                    "C": "selector",
+                    "D": ".class"
+                },
+                "answer": "C"
+            },
+
+
+            {
+                "question": "下列有关jQuery选择器的说法错误的是（ ）。",
+                "options": {
+                    "A": "使parent > child选择器与children()方法的使用效果一致用:only-child选择器只能获取一个子元素",
+                    "B": ":first-child与:first选择器都能用来获取ul列表下的li元素",
+                    "C": "prev~siblings选择器与siblings()方法的使用效果一致",
+                    "D": "parent > child选择器与children()方法的使用效果一致"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "用于播放 HTML5音频文件的正确 HTML5 元素是（   audio）。",
+                "options": {
+                    "A": "<media>",
+                    "B": "<audio>",
+                    "C": "<video>",
+                    "D": "<movie>"
+                },
+                "answer": "B"
+            },
+            {
+                "question": "用于播放 HTML5 视频文件的正确 HTML5 元素是（   video）。",
+                "options": {
+                    "A": "<media>",
+                    "B": "<audio>",
+                    "C": "<video>",
+                    "D": "<movie>"
+                },
+                "answer": "C"
+            },
+            {
+                "question": "在HTML5中，规定输入字段是必填的属性是(    )。",
+                "options": {
+                    "A": "required",
+                    "B": "formvalidate",
+                    "C": "validate",
+                    "D": "placeholder"
+                },
+                "answer": "A"
+            },
+            {
+                "question": "下面是HTML5新增的元素是(  )。",
+                "options": {
+                    "A": "li",
+                    "B": "iframe",
+                    "C": "charset",
+                    "D": "section"
+                },
+                "answer": "D"
+            },
+            {
+                "question": "主页( Home Page)就是网站默认的首页。主页默认的文件名通常为 index.html或default.html（）",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "所谓的静态网页并不单纯指网页上没有动画效果，但是在网页上放置了 Flash或者GIF动画的网页肯定是动态网页（）",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": "Web标准都是由W3C( World Wide Web Consortium，万维网联盟)组织起草和发布（）",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "HTML注释标记是: <!--注释内容 --> 。（   ）",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": "相对路径中定位当前目录的上级目录是在文件前添加“../”。(    )",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "框架是Web浏览器窗口中独立的、可以滚动的分块区域，每个框架都可以看成是独立的窗口，包含自己的URL。(    )",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "内嵌式CSS样式对网站中的所有HTML页面都有效。(    )",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": "行内式CSS样式是通过标记的属性来控制样式的，没有做到结构与表现的分离，所以一般很少使用。(    )",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "在CSS样式中通过\"//\"符号来添加注释。",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": "JavaScript、VBScript、PHP、Perl、Python和Ruby都属于脚本语言。(    )",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": "利用attr()方法可以获取元素的style属性。( )",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "jQuery中bind()方法是最推荐的一种事件绑定方式。（  ）",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "jQuery中触发某个元素的事件，其子元素上的相同事件也会被触发。（  ）",
+                "options": {},
+                "answer": "错"
+            },
+
+            {
+                "question": "制作一个网站就等于制作一个网页。(    )",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": "Dreamweaver 站点提供一种组织所有与Web 站点关联的文档的方法。通过在站点中组织文件，可以利用Dreamweaver 将站点上传到Web服务器、自动跟踪和维护链接、管理文件以及共享文件。（    ）",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "Web站点的网页文件夹一般存储于Web服务器上。（    ）",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "根据运算数的个数，可以将JavaScript运算符分为3种类型：一元运算符、二元运算符和三元运算符。(    )",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "表达式\"5\"===5的结果为true。(    )",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": "已知变量a=10,b=20,c=-5,那么表达式!((a>b) &&(b-a>c))的结果为false。(    )",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": "$('*') 用于选取所有的元素。（  ）",
+                "options": {},
+                "answer": "对"
+            },
+            {
+                "question": "contains()用于根据包含文本匹配到指定元素。（  ）",
+                "options": {},
+                "answer": "错"
+            },
+            {
+                "question": ":input选择器能够获取到img元素定义的图片。（ ）",
+                "options": {},
+                "answer": "错"
+            },
+
+            {
+                "question": "在HTML文件里，空格符号的代码是(  )。",
+                "options": {},
+                "answer": " &nbsp;&NBSP "
+            },
+            {
+                "question": "要实现超链接在指定窗口中打开目标网页需要设置(  )属性值。",
+                "options": {},
+                "answer": " href "
+            },
+            {
+                "question": "去掉超链接的下划线是通过(    )属性实现的。",
+                "options": {},
+                "answer": " text-decoration "
+            },
+            {
+                "question": "可使所有 <p> 元素变为粗体的正确语法是：p{(    ):bold;}",
+                "options": {},
+                "answer": " font-weight "
+            },
+            {
+                "question": "在#div1{color:red;}中div1是（  ）选择符，在p{font-size:24px;}中p是（  ）选择符。",
+                "options": {},
+                "answer": " <br> (1) id;ID;Id;iD <br>(2) 标签"
+            },
+            {
+                "question": "如果var x=10,y=10;则alert(x+y)的结果显示为(    ) 。",
+                "options": {},
+                "answer": " <br> (1) 1010"
+            },
+            {
+                "question": "将JavaScript中简单赋值语句y=y+5改成复合赋值为 (    )。",
+                "options": {},
+                "answer": " y+=5"
+            },
+            {
+                "question": "(    )是顶层对象，包含了历史对象、文档对象、位置对象以及框架对象。",
+                "options": {},
+                "answer": "  window"
+            },
+            {
+                "question": "jQuery中用于控制元素显示和隐藏效果的分别是(    )和(      )方法。",
+                "options": {},
+                "answer": " (1) show;show()<br>(2) hide; hide() "
+            },
+            {
+                "question": "jQuery中(    )事件只要页面的DOM节点加载后便可触发。",
+                "options": {},
+                "answer": "ready() "
+            },
+            {
+                "question": "jQuery中元素获得焦点时触发(    )事件，元素失去焦点时触发(    )事件。",
+                "options": {},
+                "answer": "(1) focus <br>(2) blur "
+            },
+            {
+                "question": "与标记b / b功能相同的标记是（）;与标记<i></i>功能相同的标记是（）。",
+                "options": {},
+                "answer": " (1) strong /strong<br>(2) em /em "
+            },
+        ];
+
+        function showMatchingQuestions() {
+            const inputField = document.getElementById('inputField');
+            const questionDiv = document.getElementById('question');
+            const inputText = inputField.value.toLowerCase();
+
+            questionDiv.innerHTML = ""; // 清空之前的内容  
+
+            questions.forEach(q => {
+                if (q.question.toLowerCase().includes(inputText)) { // 降低匹配时的问题文本  
+                    questionDiv.innerHTML += `<strong>题目：</strong>${q.question}<br />`;
+                    Object.entries(q.options).forEach(([key, value]) => {
+                        questionDiv.innerHTML += `${key}: ${value}<br />`;
+                    });
+                    questionDiv.innerHTML += `<strong>正确选项：</strong>${q.answer}<br /><br />`; // 显示正确选项  
+                }
+            });
+        }
+
+        // 添加事件监听器以捕获回车键  
+        document.getElementById('inputField').addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                showMatchingQuestions(); // 按下回车时调用函数  
+            }
+        });  
+    </script>
+</body>
+
+</html>
